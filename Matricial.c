@@ -14,9 +14,10 @@ char key;
 //ligando os leds e direcionando
 void ledinitset(){
 for(i = 0; i < 3; i++){
-  gpio_init (11+i);}
+  gpio_init (11+i);
   gpio_set_dir(11+i, GPIO_OUT);
   gpio_put(11+i, 0);
+  }
 }
 
 //definindo as linhas e colunas do teclado matricial
@@ -49,7 +50,7 @@ char check_keyboard() {
 
         for (uint8_t lin = 0; lin < 4; lin++) {
             if (gpio_get(li[lin]) == 0) { 
-                sleep_ms(20); //debounce
+                sleep_ms(50); //debounce
                 gpio_put(co[col], 1); 
                 return KEY_MAPS[lin * 4 + col];
             }
