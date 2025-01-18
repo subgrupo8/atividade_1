@@ -11,7 +11,7 @@
 uint8_t i;
 char key;
 
-//ligando os leds
+//ligando os leds e direcionando
 void ledinitset(){
 for(i = 0; i < 3; i++){
   gpio_init (11+i);}
