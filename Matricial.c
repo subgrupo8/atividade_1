@@ -12,17 +12,11 @@ uint8_t i;
 char key;
 
 //ligando os leds
-void ledinit(){
+void ledinitset(){
 for(i = 0; i < 3; i++){
   gpio_init (11+i);}
-}
-
-//direcionando os leds
-void ledset(){
-for(i = 0; i < 3; i++){
   gpio_set_dir(11+i, GPIO_OUT);
   gpio_put(11+i, 0);
-  }
 }
 
 //definindo as linhas e colunas do teclado matricial
@@ -79,8 +73,7 @@ void pressed(){  //função responsável por criar a relação de ação entre o
 
 
 int main(){  // função principal
-ledinit();
-ledset();
+ledinitset();
 buzz();
 keyboard();
 
