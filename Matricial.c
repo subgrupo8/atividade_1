@@ -21,8 +21,8 @@ for(i = 0; i < 3; i++){
 }
 
 //definindo as linhas e colunas do teclado matricial
-uint8_t li [4] = {1, 2, 3, 4};
-uint8_t co [4] = {5, 6, 7, 8};
+uint8_t rows [4] = {1, 2, 3, 4};
+uint8_t cols [4] = {5, 6, 7, 8};
 
 //mapeando as teclas do matricial
 char KEY_MAPS[16] = {
@@ -34,28 +34,28 @@ char KEY_MAPS[16] = {
 //ligando o teclado, direcionando a coluna e ativando o pull_up das linhas
 void keyboard() {
     for (int i = 0; i < 4; i++) {
-        gpio_init(co[i]);
-        gpio_set_dir(co[i], GPIO_OUT);
-        gpio_put(co[i], 1); 
+        gpio_init(cols[i]);
+        gpio_set_dir(cols[i], GPIO_OUT);
+        gpio_put(cols[i], 1); 
         
-        gpio_init(li[i]);
-        gpio_set_dir(li[i], GPIO_IN);
-        gpio_pull_up(li[i]);
+        gpio_init(rows[i]);
+        gpio_set_dir(rows[i], GPIO_IN);
+        gpio_pull_up(rows[i]);
     }
 }
 //função responsável por fazer a leitura do teclado
 char check_keyboard() {
     for (int col = 0; col < 4; col++) {
-      gpio_put(co[col], 0);
+      gpio_put(cols[col], 0);
 
-        for (uint8_t lin = 0; lin < 4; lin++) {
-            if (gpio_get(li[lin]) == 0) { 
+        for (uint8_t row = 0; row < 4; row++) {
+            if (gpio_get(rows[row]) == 0) { 
                 sleep_ms(50); //debounce
-                gpio_put(co[col], 1); 
-                return KEY_MAPS[lin * 4 + col];
+                gpio_put(cols[col], 1); 
+                return KEY_MAPS[row * 4 + col];
             }
         }
-        gpio_put(co[col], 1);
+        gpio_put(cols[col], 1);
     }
     return '\0';
 }
