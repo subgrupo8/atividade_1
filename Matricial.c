@@ -46,18 +46,19 @@ void keyboard() {
 //função responsável por fazer a leitura do teclado
 char check_keyboard() {
     for (int col = 0; col < 4; col++) {
-      gpio_put(cols[col], 0);
+      gpio_put(cols[col], 0); // Coloca as colunas em LOW de forma alternada
 
         for (uint8_t row = 0; row < 4; row++) {
-            if (gpio_get(rows[row]) == 0) { 
+            if (gpio_get(rows[row]) == 0) { // busca ativamente qual linha foi desligada ao pressionar algma tecla
                 sleep_ms(50); //debounce
-                gpio_put(cols[col], 1); 
-                return KEY_MAPS[row * 4 + col];
-            }
-        }
+                gpio_put(cols[col], 1); // coloca em HIGH a coluna que tava desativada.
+                return KEY_MAPS[row * 4 + col]; //index = linha * 4 + Coluna = Tecla pressionada
+            } /*A coluna que tava em LOW é revertida para HIGH quando uma row é acionada e os valores
+        } armazenados em row e col são utilizados no cálculo (index) para definir qual tecla foi pressionada */
         gpio_put(cols[col], 1);
     }
-    return '\0';
+    return '\0'; // retorna que nenhuma tecla foi pressionada.
+    }
 }
 void buzz() { //ligando e direcinando o buzzer
   gpio_init(28);
@@ -78,10 +79,9 @@ ledinitset();
 buzz();
 keyboard();
 
-while(1){ //código de ação
+  while(1){ //código de ação
 sleep_ms(20);
 pressed();
 sleep_ms(100);
-}
-
+  }
 }
