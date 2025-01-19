@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/Teclado_Matricial_Leds.uf2'
+elf = 'build/LedTeclado_Matricial_Leds.elf'
