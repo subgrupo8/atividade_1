@@ -22,14 +22,14 @@
       "id": "r1",
       "top": 215.15,
       "left": -67.2,
-      "attrs": { "value": "10000" }
+      "attrs": { "value": "150" }
     },
     {
       "type": "wokwi-buzzer",
       "id": "bz1",
       "top": -132,
       "left": 165,
-      "attrs": { "volume": "0.1" }
+      "attrs": { "volume": "1.0" }
     },
     {
       "type": "wokwi-led",
@@ -51,14 +51,14 @@
       "top": 216,
       "left": -173.35,
       "rotate": 90,
-      "attrs": { "value": "10000" }
+      "attrs": { "value": "150" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r3",
       "top": 243.95,
       "left": -105.6,
-      "attrs": { "value": "10000" }
+      "attrs": { "value": "150" }
     },
     {
       "type": "wokwi-membrane-keypad",

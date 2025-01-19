@@ -43,8 +43,7 @@ char check_keyboard() {   // Função responsável por ler o teclado
                     sleep_ms(20); //debounce
                     gpio_put(cols[col], 1); // Restaura a coluna para HIGH
                     return key_maps[row * 4 + col]; // index = row * 4 + col
-                }
-            
+                }    
         }
         gpio_put(cols[col], 1); // Restaura a coluna para HIGH
     }
