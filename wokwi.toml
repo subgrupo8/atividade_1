@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/Leds_e_buzzer.uf2'
+elf = 'build/Leds_e_buzzer.elf'
