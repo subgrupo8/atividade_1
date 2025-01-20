@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/search-ms:displayname=Resultados%20da%20Pesquisa%20em%20pico-sdk-master&crumb=location:C%3A%5CUsers%5CJon's%5CDocuments%5Catividades%20Cepedi%5Catividade_1%5Cpico-sdk-master/pico_stdlib"
+            ],
+            "defines": [],
+            "windowsSdkVersion": "10.0.19041.0",
+            "compilerPath": "C:/Users/Jon's/AppData/Local/Programs/microsoft VS Code",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}
