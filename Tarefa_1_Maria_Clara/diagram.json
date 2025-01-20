@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "author": " Maria Clara Simões de Jesus",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -252.85,
+      "left": 886.75,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -290, "left": -52, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -32.4,
+      "left": 493.4,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -90,
+      "left": 493.4,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 25.2, "left": 493.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": -53.65,
+      "left": 422.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 3.95,
+      "left": 422.4,
+      "attrs": { "value": "220000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 61.55,
+      "left": 422.4,
+      "attrs": { "value": "220000" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -276,
+      "left": 1067.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP11", "led3:A", "green", [ "h0" ] ],
+    [ "pico:GP12", "led2:A", "green", [ "h-57.6", "v48.04" ] ],
+    [ "pico:GP13", "led1:A", "green", [ "h-48", "v96.04" ] ],
+    [ "r4:2", "led3:C", "green", [ "v0" ] ],
+    [ "r1:2", "led2:C", "green", [ "v0" ] ],
+    [ "r2:2", "led1:C", "green", [ "v0" ] ],
+    [ "r4:1", "pico:GND.4", "green", [ "v0", "h-57.6", "v144", "h211.2", "v-115.2" ] ],
+    [ "r1:1", "pico:GND.4", "green", [ "v0", "h-57.6", "v86.4", "h211.2", "v-115.2" ] ],
+    [ "r2:1", "pico:GND.4", "green", [ "v0", "h-57.6", "v28.8", "h211.2", "v-115.2" ] ],
+    [ "pico:GND.6", "bz1:1", "black", [ "h0" ] ],
+    [ "pico:GP21", "bz1:2", "green", [ "h0" ] ],
+    [ "keypad1:R1", "pico:GP9", "purple", [ "v86.4", "h240", "v-355.2" ] ],
+    [ "keypad1:R2", "pico:GP8", "purple", [ "v76.8", "h220.4", "v-355.2" ] ],
+    [ "keypad1:R3", "pico:GP7", "purple", [ "v67.2", "h201.3", "v-355.2" ] ],
+    [ "keypad1:R4", "pico:GP6", "purple", [ "v57.6", "h182.2", "v-355.2" ] ],
+    [ "keypad1:C1", "pico:GP5", "purple", [ "v48", "h163.1", "v-355.2" ] ],
+    [ "keypad1:C2", "pico:GP4", "purple", [ "v38.4", "h144", "v-364.8" ] ],
+    [ "keypad1:C3", "pico:GP3", "purple", [ "v28.8", "h124.65", "v-364.8" ] ],
+    [ "keypad1:C4", "pico:GP2", "purple", [ "v19.2", "h105.3", "v-364.8" ] ]
+  ],
+  "dependencies": {}
+}
