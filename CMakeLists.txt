@@ -20,7 +20,7 @@ set(toolchainVersion 13_3_Rel1)
 set(picotoolVersion 2.1.0)
 set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 if (EXISTS ${picoVscode})
-    include(${picoVscode})
+    include(${picoVscode} )
 endif()
 # ====================================================================================
 set(PICO_BOARD pico_w CACHE STRING "Board type")
