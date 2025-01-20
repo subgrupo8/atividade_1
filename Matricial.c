@@ -16,8 +16,8 @@ void ledinitset(){  // Ligando os LEDs e direcionando
     }
 }
 
-uint8_t rows[4] = {1, 2, 3, 4}; // Linhas do teclado
-uint8_t cols[4] = {5, 6, 7, 8}; // Colunas do teclado
+uint8_t rows[4] = {2, 3, 4, 5}; // Linhas do teclado
+uint8_t cols[4] = {6, 7, 8, 9}; // Colunas do teclado
 
 // Mapeando as teclas do teclado matricial
 char key_maps[16] = {'1', '2', '3', 'A', '4', '5', '6', 'B', '7', '8', '9', 'C', '*', '0', '#', 'D'};
@@ -43,7 +43,7 @@ char check_keyboard() {   // Função responsável por ler o teclado
                     sleep_ms(20); //debounce
                     gpio_put(cols[col], 1); // Restaura a coluna para HIGH
                     return key_maps[row * 4 + col]; // index = row * 4 + col
-                }    
+                } 
         }
         gpio_put(cols[col], 1); // Restaura a coluna para HIGH
     }
@@ -65,6 +65,11 @@ void note(uint8_t buzzer, uint16_t notefreq, uint16_t duration_ms){
         sleep_us(halfc); // Aguarda a outra metade do tempo (meio período)
     }
 }
+
+void confirm(char key){
+  printf("Tecla %c pressionada\n", key);
+}
+
 void pressed() {  // Função que faz a relação entre o teclado e os atuadores
     char key;
     key = check_keyboard(); // Verifica qual tecla foi pressionada
@@ -75,10 +80,6 @@ void pressed() {  // Função que faz a relação entre o teclado e os atuadores
     (key != '\0' && key == 'B') ? gpio_put(12, 1) : gpio_put(12, 0);
     (key != '\0' && key == 'C') ? gpio_put(13, 1) : gpio_put(13, 0);
     (key != '\0' && key == 'D') ? note(28, 262, 500) : gpio_put(28, 0);
-}
-
-void confirm(char key){
-  printf("Tecla %c pressionada\n", key);
 }
 
 int main(){  // Função principal
